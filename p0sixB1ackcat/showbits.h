@@ -18,10 +18,10 @@ typedef struct{
     int showb_t_bytesize;
     int showb_t_bitsize;
     
-}showb_t;
+}showb,*pshowb;
 
 
-showb_t * showbites(int);
+showb * showbites(int);
 
 
 #endif /* showbits_h */

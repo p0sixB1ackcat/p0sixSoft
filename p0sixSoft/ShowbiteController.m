@@ -60,44 +60,43 @@
     
     NSLog(@"showBites");
     
-    if (self.inputSourceTextfield.stringValue.length > 0) {
+    if (self.inputSourceTextfield.stringValue.length > 0)
+    {
         NSString * inputStr = self.inputSourceTextfield.stringValue;
         int number = [inputStr intValue];
-        if (number >= 0) {//判断是否为正数
-            
-            showb_t * showb = showbites(number);
-            
-            if (showb == NULL) {
-                self.outputSourceLabel.stringValue = @"内存分配出错!!!";
-                return;
-            }
-            if (_numberStr.length > 0) {
-                [self emptyButton:nil];
-                
-            }
-            
-            for (int i = 0; i < showb->showb_t_bytesize; i++) {
-                for (int j = 0; j < showb->showb_t_bitsize; j++) {
-                    
-                    [_numberStr appendFormat:@"%d",showb->showb_t_list[i][j]];
-                    
-                }
-                
-                if (i < BYTESIZE -1) {
-                    [_numberStr appendFormat:@" "];
-                }
-                
-            }
-            printf("showb的指针是%p\n",showb);
-            free(showb);
-            showb = NULL;
-            
-            self.outputSourceLabel.stringValue = [NSString stringWithFormat:@"   %@=%@",inputStr,_numberStr];
-            
-        }else{
-            
-            self.outputSourceLabel.stringValue = @" 对不起，现在还无法计算负数的二进制位，请联系WX！！！";
+        
+        showb * showb = showbites(number);
+        
+        if (showb == NULL)
+        {
+            self.outputSourceLabel.stringValue = @"内存分配出错!!!";
+            return;
         }
+        if (_numberStr.length > 0)
+        {
+            [self emptyButton:nil];
+        }
+        
+        for (int i = 0; i < showb->showb_t_bytesize; i++)
+        {
+            for (int j = 0; j < showb->showb_t_bitsize; j++)
+            {
+                
+                [_numberStr appendFormat:@"%d",showb->showb_t_list[i][j]];
+                
+            }
+            
+            if (i < BYTESIZE -1)
+            {
+                [_numberStr appendFormat:@" "];
+            }
+            
+        }
+        printf("showb的指针是%p\n",showb);
+        free(showb);
+        showb = NULL;
+        
+        self.outputSourceLabel.stringValue = [NSString stringWithFormat:@"   %@=%@",inputStr,_numberStr];
         
     }else{
         

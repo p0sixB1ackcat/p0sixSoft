@@ -14,10 +14,9 @@ char BigEndToSmaillEnd(void)
     return *p;
 }
 
-showb_t * showbites(int number)
+showb * showbites(int number)
 {
-  //char list[4][8];
-  showb_t * showb_t_list = (showb_t *)malloc(sizeof(showb_t));
+  showb * showb_t_list = (showb *)malloc(sizeof(showb));
   
   if (showb_t_list == NULL) {
         return NULL;
@@ -28,14 +27,20 @@ showb_t * showbites(int number)
   }
   unsigned char * p = (unsigned char *)&number;
     
-  for(int i = 0;i < BYTESIZE;i++){
+  for(int i = 0;i < BYTESIZE;i++)
+  {
     unsigned char number_c = p[i];
-    for(int j = 0;j<BITSIZE;j++){
+      
+    for(int j = 0;j<BITSIZE;j++)
+    {
         
-        if(number_c & 0x80){
+        if(number_c & 0x80)
+        {
             //putchar('1');
             showb_t_list->showb_t_list[i][j] = 1;
-        }else {
+        }
+        else
+        {
             //putchar('0');
             showb_t_list->showb_t_list[i][j] = 0;
         }
