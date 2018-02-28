@@ -56,6 +56,25 @@
     
 }
 
+int checkstr(const char *source)
+{
+    int ret = 0;
+    if(!source)
+        return ret;
+    char *p = (char *)source;
+    ret = 1;
+    while(*p != '\0')
+    {
+        if(*p < '0' || *p > '9')
+        {
+            ret = 0;
+            break;
+        }
+        p++;
+    }
+    return ret;
+}
+
 - (IBAction)showBites:(id)sender {
     
     NSLog(@"showBites");
@@ -63,8 +82,12 @@
     if (self.inputSourceTextfield.stringValue.length > 0)
     {
         NSString * inputStr = self.inputSourceTextfield.stringValue;
+        if(!checkstr(inputStr.UTF8String))
+        {
+            self.outputSourceLabel.stringValue = @" 请输入合法的数字";
+            return;
+        }
         int number = [inputStr intValue];
-        
         showb * showb = showbites(number);
         
         if (showb == NULL)
@@ -98,8 +121,9 @@
         
         self.outputSourceLabel.stringValue = [NSString stringWithFormat:@"   %@=%@",inputStr,_numberStr];
         
-    }else{
-        
+    }
+    else
+    {
         self.outputSourceLabel.stringValue = @" 请输入,不然WX没有办法来计算!!!";
     }
     
@@ -107,14 +131,16 @@
 
 - (IBAction)emptyButton:(id)sender {
     
-    if (self.inputSourceTextfield.stringValue.length > 0) {
+    if (self.inputSourceTextfield.stringValue.length > 0)
+    {
         self.inputSourceTextfield.stringValue = @"";
     }
-    if (self.outputSourceLabel.stringValue.length > 0) {
+    if (self.outputSourceLabel.stringValue.length > 0)
+    {
         self.outputSourceLabel.stringValue = @"";
     }
     
-    _numberStr = [NSMutableString stringWithFormat:@"%@",@""];
+    _numberStr = [NSMutableString stringWithFormat:@""];
     NSLog(@"emptyButton");
 }
 
