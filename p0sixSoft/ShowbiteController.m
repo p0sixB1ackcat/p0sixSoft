@@ -18,6 +18,8 @@
 @property (weak) IBOutlet NSTextField *inputSourceTextfield;
 
 @property (weak) IBOutlet NSTextField *outputSourceLabel;
+@property (weak) IBOutlet NSTextField *outputBinField;
+@property (weak) IBOutlet NSTextField *outputHexField;
 
 @end
 
@@ -62,10 +64,10 @@ int checkstr(const char *source)
     if(!source)
         return ret;
     char *p = (char *)source;
+    ret = 1;
     if(*p != '-')
         goto isnum;
     p++;
-    ret = 1;
     while(*p != '\0')
     {
     isnum:
@@ -123,7 +125,7 @@ int checkstr(const char *source)
         free(showb);
         showb = NULL;
         
-        self.outputSourceLabel.stringValue = [NSString stringWithFormat:@"   %@=%@",inputStr,_numberStr];
+        self.outputBinField.stringValue = [NSString stringWithFormat:@"%@",_numberStr];
         
     }
     else
