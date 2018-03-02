@@ -33,17 +33,8 @@ showb * showbites(int number)
       
     for(int j = 0;j<BITSIZE;j++)
     {
+        showb_t_list->showb_t_list[i][j] = number_c & 0x80 ? 1 : 0;
         
-        if(number_c & 0x80)
-        {
-            //putchar('1');
-            showb_t_list->showb_t_list[i][j] = 1;
-        }
-        else
-        {
-            //putchar('0');
-            showb_t_list->showb_t_list[i][j] = 0;
-        }
         number_c <<= 1;
         
     }

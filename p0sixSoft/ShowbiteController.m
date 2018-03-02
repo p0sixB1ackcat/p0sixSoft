@@ -62,9 +62,13 @@ int checkstr(const char *source)
     if(!source)
         return ret;
     char *p = (char *)source;
+    if(*p != '-')
+        goto isnum;
+    p++;
     ret = 1;
     while(*p != '\0')
     {
+    isnum:
         if(*p < '0' || *p > '9')
         {
             ret = 0;
