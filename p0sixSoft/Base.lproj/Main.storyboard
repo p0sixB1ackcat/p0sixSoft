@@ -548,14 +548,14 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPF-lH-UQg">
                                 <rect key="frame" x="229" y="0.0" width="251" height="270"/>
                                 <clipView key="contentView" id="NRn-Bo-6gg">
-                                    <rect key="frame" x="1" y="1" width="249" height="268"/>
+                                    <rect key="frame" x="1" y="1" width="234" height="268"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="iMa-0h-zM8">
-                                            <rect key="frame" x="0.0" y="0.0" width="249" height="268"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="234" height="268"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="249" height="268"/>
+                                            <size key="minSize" width="234" height="268"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
@@ -567,7 +567,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Bd3-GP-P1y">
-                                    <rect key="frame" x="234" y="1" width="16" height="268"/>
+                                    <rect key="frame" x="235" y="1" width="15" height="268"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -689,6 +689,17 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y8x-L6-VBu">
+                                <rect key="frame" x="54" y="69" width="343" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Zzc-b4-3iO"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="YW3-if-WHK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="dJ4-5f-azs" firstAttribute="leading" secondItem="BPa-bq-p1a" secondAttribute="leading" constant="1" id="41l-Lw-M6z"/>
@@ -698,9 +709,11 @@
                             <constraint firstItem="vxj-pO-Pht" firstAttribute="top" secondItem="Elq-Bw-J1I" secondAttribute="bottom" constant="30" id="C3p-jG-xqe"/>
                             <constraint firstItem="Oed-zK-uhy" firstAttribute="top" secondItem="dJ4-5f-azs" secondAttribute="bottom" constant="75" id="DXB-W1-L3E"/>
                             <constraint firstAttribute="trailing" secondItem="vxj-pO-Pht" secondAttribute="trailing" constant="12" id="E2R-ur-FlC"/>
+                            <constraint firstItem="y8x-L6-VBu" firstAttribute="top" secondItem="aLe-QM-exj" secondAttribute="bottom" constant="23" id="Hnu-yo-cIW"/>
                             <constraint firstItem="Elq-Bw-J1I" firstAttribute="leading" secondItem="dJ4-5f-azs" secondAttribute="trailing" constant="4" id="KTK-Di-O8k"/>
                             <constraint firstItem="aLe-QM-exj" firstAttribute="leading" secondItem="Oed-zK-uhy" secondAttribute="trailing" constant="4" id="LSG-gq-PXs"/>
                             <constraint firstItem="4fc-Ow-b9t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BPa-bq-p1a" secondAttribute="leading" constant="20" symbolic="YES" id="PVA-aR-Oxc"/>
+                            <constraint firstItem="y8x-L6-VBu" firstAttribute="leading" secondItem="BPa-bq-p1a" secondAttribute="leading" constant="56" id="Pzl-xx-wHM"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cuL-Et-Jg6" secondAttribute="trailing" constant="20" symbolic="YES" id="WIK-vy-rhh"/>
                             <constraint firstItem="w1y-5A-fve" firstAttribute="top" secondItem="dJ4-5f-azs" secondAttribute="bottom" constant="30" id="Wf1-TR-JaK"/>
                             <constraint firstAttribute="trailing" secondItem="aLe-QM-exj" secondAttribute="trailing" constant="12" id="aw9-Oz-Jsk"/>
@@ -712,12 +725,14 @@
                             <constraint firstItem="dJ4-5f-azs" firstAttribute="top" secondItem="BPa-bq-p1a" secondAttribute="top" constant="45" id="vfu-Wi-PNF"/>
                             <constraint firstItem="Oed-zK-uhy" firstAttribute="leading" secondItem="BPa-bq-p1a" secondAttribute="leading" constant="1" id="voU-dy-27H"/>
                             <constraint firstAttribute="trailing" secondItem="4fc-Ow-b9t" secondAttribute="trailing" constant="20" id="wTS-I3-i6Z"/>
+                            <constraint firstAttribute="trailing" secondItem="y8x-L6-VBu" secondAttribute="trailing" constant="55" id="yKt-0f-YDy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="inputSourceTextfield" destination="Elq-Bw-J1I" id="MTr-qd-cKN"/>
                         <outlet property="outputBinField" destination="vxj-pO-Pht" id="cla-9e-Xe9"/>
                         <outlet property="outputHexField" destination="aLe-QM-exj" id="82w-3G-vRF"/>
+                        <outlet property="outputWarringLabel" destination="y8x-L6-VBu" id="q0v-M7-3lV"/>
                     </connections>
                 </viewController>
                 <customObject id="K5b-Vk-Qlm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

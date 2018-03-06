@@ -17,7 +17,7 @@
 
 @property (weak) IBOutlet NSTextField *inputSourceTextfield;
 
-@property (weak) IBOutlet NSTextField *outputSourceLabel;
+@property (weak) IBOutlet NSTextField *outputWarringLabel;
 @property (weak) IBOutlet NSTextField *outputBinField;
 @property (weak) IBOutlet NSTextField *outputHexField;
 
@@ -90,7 +90,7 @@ int checkstr(const char *source)
         NSString * inputStr = self.inputSourceTextfield.stringValue;
         if(!checkstr(inputStr.UTF8String))
         {
-            self.outputSourceLabel.stringValue = @" 请输入合法的数字";
+            self.outputWarringLabel.stringValue = @" 请输入合法的数字";
             return;
         }
         int number = [inputStr intValue];
@@ -98,13 +98,12 @@ int checkstr(const char *source)
         
         if (showb == NULL)
         {
-            self.outputSourceLabel.stringValue = @"内存分配出错!!!";
+            self.outputWarringLabel.stringValue = @"内存分配出错!!!";
             return;
         }
-        if (_numberStr.length > 0)
-        {
-            [self emptyButton:nil];
-        }
+        
+        [self emptyButton:nil];
+        
         
         for (int i = 0; i < showb->showb_t_bytesize; i++)
         {
@@ -126,26 +125,34 @@ int checkstr(const char *source)
         showb = NULL;
         
         self.outputBinField.stringValue = [NSString stringWithFormat:@"%@",_numberStr];
+        self.outputHexField.stringValue = [NSString stringWithFormat:@"0x%08X",number];
         
     }
     else
     {
-        self.outputSourceLabel.stringValue = @" 请输入,不然WX没有办法来计算!!!";
+        self.outputWarringLabel.stringValue = @" 请输入,不然WX没有办法来计算!!!";
     }
     
 }
 
 - (IBAction)emptyButton:(id)sender {
     
-    if (self.inputSourceTextfield.stringValue.length > 0)
+    if (self.outputWarringLabel.stringValue.length > 0)
+    {
+        self.outputWarringLabel.stringValue = @"";
+    }
+    if(self.inputSourceTextfield.stringValue && sender)//手动点击清空时
     {
         self.inputSourceTextfield.stringValue = @"";
     }
-    if (self.outputSourceLabel.stringValue.length > 0)
+    if(self.outputBinField.stringValue.length)
     {
-        self.outputSourceLabel.stringValue = @"";
+        self.outputBinField.stringValue = @"";
     }
-    
+    if(self.outputHexField.stringValue.length)
+    {
+        self.outputHexField.stringValue = @"";
+    }
     _numberStr = [NSMutableString stringWithFormat:@""];
     NSLog(@"emptyButton");
 }
