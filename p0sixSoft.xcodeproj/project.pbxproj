@@ -30,6 +30,13 @@
 		CF3E44EE202E978A001FB037 /* wxzip.h in Headers */ = {isa = PBXBuildFile; fileRef = CF3E44E1202E978A001FB037 /* wxzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3E44F1202E9B5B001FB037 /* ShowbiteController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3E44F0202E9B5B001FB037 /* ShowbiteController.m */; };
 		CF3E44F9202ECFB0001FB037 /* p0sixB1ackcat.icns in Resources */ = {isa = PBXBuildFile; fileRef = CF3E44F8202ECFB0001FB037 /* p0sixB1ackcat.icns */; };
+		CFDEBEB5205435B5009F2F7F /* PBCRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDEBEB3205435B4009F2F7F /* PBCRSA.m */; };
+		CFDEBEB6205435B5009F2F7F /* PBCRSA.h in Headers */ = {isa = PBXBuildFile; fileRef = CFDEBEB4205435B4009F2F7F /* PBCRSA.h */; };
+		CFDEBEBA2054373F009F2F7F /* PBCEncrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = CFDEBEB82054373F009F2F7F /* PBCEncrypt.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CFDEBEBB2054373F009F2F7F /* PBCEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDEBEB92054373F009F2F7F /* PBCEncrypt.m */; };
+		CFDEBEBE20543767009F2F7F /* PBCSecurityAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFDEBEC420543FFD009F2F7F /* libPBCEncrypt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */; };
+		CFDEBEC7205440A9009F2F7F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEC5205440A9009F2F7F /* openssl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +93,14 @@
 		CF3E44EF202E9B5B001FB037 /* ShowbiteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowbiteController.h; sourceTree = "<group>"; };
 		CF3E44F0202E9B5B001FB037 /* ShowbiteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowbiteController.m; sourceTree = "<group>"; };
 		CF3E44F8202ECFB0001FB037 /* p0sixB1ackcat.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = p0sixB1ackcat.icns; sourceTree = "<group>"; };
+		CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libPBCEncrypt.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFDEBEB3205435B4009F2F7F /* PBCRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBCRSA.m; path = p0sixB1ackcat/PBCRSA.m; sourceTree = SOURCE_ROOT; };
+		CFDEBEB4205435B4009F2F7F /* PBCRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBCRSA.h; path = p0sixB1ackcat/PBCRSA.h; sourceTree = SOURCE_ROOT; };
+		CFDEBEB82054373F009F2F7F /* PBCEncrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCEncrypt.h; sourceTree = "<group>"; };
+		CFDEBEB92054373F009F2F7F /* PBCEncrypt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBCEncrypt.m; sourceTree = "<group>"; };
+		CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCSecurityAPI.h; sourceTree = "<group>"; };
+		CFDEBEC020543795009F2F7F /* PBCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCpp.h; sourceTree = "<group>"; };
+		CFDEBEC5205440A9009F2F7F /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDEBEC420543FFD009F2F7F /* libPBCEncrypt.dylib in Frameworks */,
 				CF3E44CC202E9758001FB037 /* p0sixB1ackcat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +120,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CFDEBEA720543596009F2F7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFDEBEC7205440A9009F2F7F /* openssl.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -112,7 +136,9 @@
 			children = (
 				CF3E4481202E96BB001FB037 /* p0sixSoft */,
 				CF3E44B8202E9758001FB037 /* p0sixB1ackcat */,
+				CFDEBEAB20543597009F2F7F /* PBCEncrypt */,
 				CF3E4480202E96BB001FB037 /* Products */,
+				CFDEBEC320543FFD009F2F7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +147,7 @@
 			children = (
 				CF3E447F202E96BB001FB037 /* p0sixSoft.app */,
 				CF3E44B7202E9758001FB037 /* p0sixB1ackcat.framework */,
+				CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +193,27 @@
 			path = p0sixB1ackcat;
 			sourceTree = "<group>";
 		};
+		CFDEBEAB20543597009F2F7F /* PBCEncrypt */ = {
+			isa = PBXGroup;
+			children = (
+				CFDEBEC5205440A9009F2F7F /* openssl.framework */,
+				CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */,
+				CFDEBEB82054373F009F2F7F /* PBCEncrypt.h */,
+				CFDEBEB92054373F009F2F7F /* PBCEncrypt.m */,
+				CFDEBEB4205435B4009F2F7F /* PBCRSA.h */,
+				CFDEBEB3205435B4009F2F7F /* PBCRSA.m */,
+				CFDEBEC020543795009F2F7F /* PBCpp.h */,
+			);
+			path = PBCEncrypt;
+			sourceTree = "<group>";
+		};
+		CFDEBEC320543FFD009F2F7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -181,6 +229,16 @@
 				CF3E44C9202E9758001FB037 /* p0sixB1ackcat.h in Headers */,
 				CF3E44E6202E978A001FB037 /* showbits.h in Headers */,
 				CF3E44EE202E978A001FB037 /* wxzip.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFDEBEA820543596009F2F7F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFDEBEBE20543767009F2F7F /* PBCSecurityAPI.h in Headers */,
+				CFDEBEBA2054373F009F2F7F /* PBCEncrypt.h in Headers */,
+				CFDEBEB6205435B5009F2F7F /* PBCRSA.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +282,23 @@
 			productReference = CF3E44B7202E9758001FB037 /* p0sixB1ackcat.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		CFDEBEA920543596009F2F7F /* PBCEncrypt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFDEBEB220543598009F2F7F /* Build configuration list for PBXNativeTarget "PBCEncrypt" */;
+			buildPhases = (
+				CFDEBEA620543596009F2F7F /* Sources */,
+				CFDEBEA720543596009F2F7F /* Frameworks */,
+				CFDEBEA820543596009F2F7F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PBCEncrypt;
+			productName = PBCEncrypt;
+			productReference = CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -238,6 +313,10 @@
 						ProvisioningStyle = Automatic;
 					};
 					CF3E44B6202E9758001FB037 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CFDEBEA920543596009F2F7F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -258,6 +337,7 @@
 			targets = (
 				CF3E447E202E96BB001FB037 /* p0sixSoft */,
 				CF3E44B6202E9758001FB037 /* p0sixB1ackcat */,
+				CFDEBEA920543596009F2F7F /* PBCEncrypt */,
 			);
 		};
 /* End PBXProject section */
@@ -304,6 +384,15 @@
 				CF3E44E4202E978A001FB037 /* showbits.c in Sources */,
 				CF3E44E3202E978A001FB037 /* WXSQLiteDatabase.m in Sources */,
 				CF3E44ED202E978A001FB037 /* integertostr.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFDEBEA620543596009F2F7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFDEBEB5205435B5009F2F7F /* PBCRSA.m in Sources */,
+				CFDEBEBB2054373F009F2F7F /* PBCEncrypt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +597,38 @@
 			};
 			name = Release;
 		};
+		CFDEBEB020543598009F2F7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Volumes/Transcend/MEGAsync/mycomputer/Apple开发/ObjectC-file/code/WXSecurityKeyBoardDemo/WXSecurityKeyBoardDemo/keyBoard",
+					"$(PROJECT_DIR)/PBCEncrypt",
+				);
+				HEADER_SEARCH_PATHS = "/Volumes/Transcend/MEGAsync/mycomputer/Apple开发/ObjectC-file/code/WXSecurityKeyBoardDemo/WXSecurityKeyBoardDemo/keyBoard/openssl.framework/Headers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CFDEBEB120543598009F2F7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Volumes/Transcend/MEGAsync/mycomputer/Apple开发/ObjectC-file/code/WXSecurityKeyBoardDemo/WXSecurityKeyBoardDemo/keyBoard",
+					"$(PROJECT_DIR)/PBCEncrypt",
+				);
+				HEADER_SEARCH_PATHS = "/Volumes/Transcend/MEGAsync/mycomputer/Apple开发/ObjectC-file/code/WXSecurityKeyBoardDemo/WXSecurityKeyBoardDemo/keyBoard/openssl.framework/Headers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -534,6 +655,15 @@
 			buildConfigurations = (
 				CF3E44CF202E9758001FB037 /* Debug */,
 				CF3E44D0202E9758001FB037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFDEBEB220543598009F2F7F /* Build configuration list for PBXNativeTarget "PBCEncrypt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFDEBEB020543598009F2F7F /* Debug */,
+				CFDEBEB120543598009F2F7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

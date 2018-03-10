@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ShowbiteController.h"
 #import "p0sixB1ackcat.h"
+#import "PBCSecurityAPI.h"
 
 @interface ViewController ()
 {
@@ -27,6 +28,14 @@
     _textView.backgroundColor = [NSColor colorWithRed:38.0f/255.0f green:38.0f/255.0f blue:38.0f/255.0f alpha:0.6f];
     _textView.font = [NSFont systemFontOfSize:18.0f];
     _textView.textColor = [NSColor greenColor];
+    
+    NSString *enc = [PBCEncrypt RSAEncryptStr:@"0123456789" key:nil];
+    
+    NSLog(@"enc is %@",enc);
+    
+    NSString *dec = [PBCEncrypt RSADecryptStr:enc key:nil];
+    
+    NSLog(@"dec is %@",dec);
     
 }
 
