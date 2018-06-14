@@ -37,6 +37,8 @@
 		CFDEBEBE20543767009F2F7F /* PBCSecurityAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFDEBEC420543FFD009F2F7F /* libPBCEncrypt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */; };
 		CFDEBEC7205440A9009F2F7F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEC5205440A9009F2F7F /* openssl.framework */; };
+		D37724BF20D248F8001C7C71 /* PBCMemPool.c in Sources */ = {isa = PBXBuildFile; fileRef = D37724BD20D248F8001C7C71 /* PBCMemPool.c */; };
+		D37724C020D248F8001C7C71 /* PBCMemPool.h in Headers */ = {isa = PBXBuildFile; fileRef = D37724BE20D248F8001C7C71 /* PBCMemPool.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,9 @@
 		CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCSecurityAPI.h; sourceTree = "<group>"; };
 		CFDEBEC020543795009F2F7F /* PBCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCpp.h; sourceTree = "<group>"; };
 		CFDEBEC5205440A9009F2F7F /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
+		D37724B420D248CD001C7C71 /* libPBCMemory.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libPBCMemory.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D37724BD20D248F8001C7C71 /* PBCMemPool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PBCMemPool.c; sourceTree = "<group>"; };
+		D37724BE20D248F8001C7C71 /* PBCMemPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBCMemPool.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +133,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D37724B120D248CD001C7C71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -137,6 +149,7 @@
 				CF3E4481202E96BB001FB037 /* p0sixSoft */,
 				CF3E44B8202E9758001FB037 /* p0sixB1ackcat */,
 				CFDEBEAB20543597009F2F7F /* PBCEncrypt */,
+				D37724B520D248CD001C7C71 /* PBCMemory */,
 				CF3E4480202E96BB001FB037 /* Products */,
 				CFDEBEC320543FFD009F2F7F /* Frameworks */,
 			);
@@ -148,6 +161,7 @@
 				CF3E447F202E96BB001FB037 /* p0sixSoft.app */,
 				CF3E44B7202E9758001FB037 /* p0sixB1ackcat.framework */,
 				CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */,
+				D37724B420D248CD001C7C71 /* libPBCMemory.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +228,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D37724B520D248CD001C7C71 /* PBCMemory */ = {
+			isa = PBXGroup;
+			children = (
+				D37724BD20D248F8001C7C71 /* PBCMemPool.c */,
+				D37724BE20D248F8001C7C71 /* PBCMemPool.h */,
+			);
+			path = PBCMemory;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -239,6 +262,14 @@
 				CFDEBEBE20543767009F2F7F /* PBCSecurityAPI.h in Headers */,
 				CFDEBEBA2054373F009F2F7F /* PBCEncrypt.h in Headers */,
 				CFDEBEB6205435B5009F2F7F /* PBCRSA.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D37724B220D248CD001C7C71 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37724C020D248F8001C7C71 /* PBCMemPool.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +330,23 @@
 			productReference = CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
+		D37724B320D248CD001C7C71 /* PBCMemory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D37724BC20D248CD001C7C71 /* Build configuration list for PBXNativeTarget "PBCMemory" */;
+			buildPhases = (
+				D37724B020D248CD001C7C71 /* Sources */,
+				D37724B120D248CD001C7C71 /* Frameworks */,
+				D37724B220D248CD001C7C71 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PBCMemory;
+			productName = PBCMemory;
+			productReference = D37724B420D248CD001C7C71 /* libPBCMemory.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -320,6 +368,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					D37724B320D248CD001C7C71 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = CF3E447A202E96BB001FB037 /* Build configuration list for PBXProject "p0sixSoft" */;
@@ -338,6 +390,7 @@
 				CF3E447E202E96BB001FB037 /* p0sixSoft */,
 				CF3E44B6202E9758001FB037 /* p0sixB1ackcat */,
 				CFDEBEA920543596009F2F7F /* PBCEncrypt */,
+				D37724B320D248CD001C7C71 /* PBCMemory */,
 			);
 		};
 /* End PBXProject section */
@@ -393,6 +446,14 @@
 			files = (
 				CFDEBEB5205435B5009F2F7F /* PBCRSA.m in Sources */,
 				CFDEBEBB2054373F009F2F7F /* PBCEncrypt.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D37724B020D248CD001C7C71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37724BF20D248F8001C7C71 /* PBCMemPool.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +690,36 @@
 			};
 			name = Release;
 		};
+		D37724BA20D248CD001C7C71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D37724BB20D248CD001C7C71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -664,6 +755,15 @@
 			buildConfigurations = (
 				CFDEBEB020543598009F2F7F /* Debug */,
 				CFDEBEB120543598009F2F7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D37724BC20D248CD001C7C71 /* Build configuration list for PBXNativeTarget "PBCMemory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D37724BA20D248CD001C7C71 /* Debug */,
+				D37724BB20D248CD001C7C71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
