@@ -8,6 +8,8 @@
 
 #import "ShowbiteController.h"
 #import "p0sixB1ackcat.h"
+#import "PBCRetainCount.h"
+#import "PBCMemoryPool.h"
 
 @interface ShowbiteController (){
     
@@ -55,8 +57,9 @@
     _numberStr = [[NSMutableString alloc] init];
     
     self.title = @"转二进制";
-    
 }
+
+
 
 int checkstr(const char *source)
 {

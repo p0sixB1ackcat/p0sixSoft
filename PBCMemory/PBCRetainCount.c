@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "PBCMemPool.h"
+#include "PBCRetainCount.h"
 
 MMLinkListNode *plinkListHeader = NULL;
 
@@ -80,6 +80,11 @@ int pbc_free(ImageObject ** p)
 {
     if(!p)
         return -1;
+    if((*p)->pointImportCount)
+    {
+        printf("point import count not zero!\n");
+        return -1;
+    }
     popWithPool(p);
     return 1;
 }

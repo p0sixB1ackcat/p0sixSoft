@@ -37,8 +37,10 @@
 		CFDEBEBE20543767009F2F7F /* PBCSecurityAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFDEBEC420543FFD009F2F7F /* libPBCEncrypt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */; };
 		CFDEBEC7205440A9009F2F7F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEC5205440A9009F2F7F /* openssl.framework */; };
-		D37724BF20D248F8001C7C71 /* PBCMemPool.c in Sources */ = {isa = PBXBuildFile; fileRef = D37724BD20D248F8001C7C71 /* PBCMemPool.c */; };
-		D37724C020D248F8001C7C71 /* PBCMemPool.h in Headers */ = {isa = PBXBuildFile; fileRef = D37724BE20D248F8001C7C71 /* PBCMemPool.h */; };
+		D3315EE720DD2838002C5320 /* PBCRetainCount.c in Sources */ = {isa = PBXBuildFile; fileRef = D3315EE420DD2837002C5320 /* PBCRetainCount.c */; };
+		D3315EE820DD2838002C5320 /* PBCMemoryPool.c in Sources */ = {isa = PBXBuildFile; fileRef = D3315EE520DD2838002C5320 /* PBCMemoryPool.c */; };
+		D3315EE920DD2838002C5320 /* PBCRetainCount.h in Headers */ = {isa = PBXBuildFile; fileRef = D3315EE620DD2838002C5320 /* PBCRetainCount.h */; };
+		D3A1F3DB20D8FCB1007324F6 /* libPBCMemory.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D37724B420D248CD001C7C71 /* libPBCMemory.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,9 +105,11 @@
 		CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCSecurityAPI.h; sourceTree = "<group>"; };
 		CFDEBEC020543795009F2F7F /* PBCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCpp.h; sourceTree = "<group>"; };
 		CFDEBEC5205440A9009F2F7F /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
+		D3315EE420DD2837002C5320 /* PBCRetainCount.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PBCRetainCount.c; sourceTree = "<group>"; };
+		D3315EE520DD2838002C5320 /* PBCMemoryPool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PBCMemoryPool.c; sourceTree = "<group>"; };
+		D3315EE620DD2838002C5320 /* PBCRetainCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBCRetainCount.h; sourceTree = "<group>"; };
+		D3315EEA20DD2853002C5320 /* PBCMemoryPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCMemoryPool.h; sourceTree = "<group>"; };
 		D37724B420D248CD001C7C71 /* libPBCMemory.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libPBCMemory.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37724BD20D248F8001C7C71 /* PBCMemPool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PBCMemPool.c; sourceTree = "<group>"; };
-		D37724BE20D248F8001C7C71 /* PBCMemPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBCMemPool.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A1F3DB20D8FCB1007324F6 /* libPBCMemory.dylib in Frameworks */,
 				CFDEBEC420543FFD009F2F7F /* libPBCEncrypt.dylib in Frameworks */,
 				CF3E44CC202E9758001FB037 /* p0sixB1ackcat.framework in Frameworks */,
 			);
@@ -231,8 +236,10 @@
 		D37724B520D248CD001C7C71 /* PBCMemory */ = {
 			isa = PBXGroup;
 			children = (
-				D37724BD20D248F8001C7C71 /* PBCMemPool.c */,
-				D37724BE20D248F8001C7C71 /* PBCMemPool.h */,
+				D3315EE520DD2838002C5320 /* PBCMemoryPool.c */,
+				D3315EEA20DD2853002C5320 /* PBCMemoryPool.h */,
+				D3315EE420DD2837002C5320 /* PBCRetainCount.c */,
+				D3315EE620DD2838002C5320 /* PBCRetainCount.h */,
 			);
 			path = PBCMemory;
 			sourceTree = "<group>";
@@ -269,7 +276,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D37724C020D248F8001C7C71 /* PBCMemPool.h in Headers */,
+				D3315EE920DD2838002C5320 /* PBCRetainCount.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +460,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D37724BF20D248F8001C7C71 /* PBCMemPool.c in Sources */,
+				D3315EE820DD2838002C5320 /* PBCMemoryPool.c in Sources */,
+				D3315EE720DD2838002C5320 /* PBCRetainCount.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

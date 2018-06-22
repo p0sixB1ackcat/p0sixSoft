@@ -1,13 +1,5 @@
-//
-//  PBCMemPool.h
-//  memorypool
-//
-//  Created by rongbei-wuxian on 2018/6/14.
-//  Copyright © 2018年 rongbei-wuxian. All rights reserved.
-//
-
-#ifndef PBCMemPool_h
-#define PBCMemPool_h
+#ifndef PBCRetainCount_h
+#define PBCRetainCount_h
 
 typedef struct _MMLinkListNode
 {
@@ -30,4 +22,4 @@ ImageObject *pbc_maloc(int size);
 
 int pbc_free(ImageObject ** p);
 
-#endif /* PBCMemPool_h */
+#endif /* PBCRetainCount_h */
