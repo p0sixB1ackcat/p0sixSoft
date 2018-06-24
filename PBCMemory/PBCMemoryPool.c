@@ -79,7 +79,7 @@ PDataObject PBCAllocatePool()
     {
         //去空闲内存中去取
         PDataObject dataObject = (PDataObject)_globalMemoryPool->lastFree;
-        //下一层寻址，找到该指针之前释放的内存地址
+        //下一层寻址，找到该指针之前被标记为空闲的内存块地址
         _globalMemoryPool->lastFree = dataObject->value;
         
         return dataObject;
@@ -144,29 +144,30 @@ void flagMemoryUnoccupied(PDataObject dataObject)
             continue;
         }
         
-        {
-            --dataObject->retainCount;
-            if(dataObject->retainCount)
-            {
-                //此时说明内存泄露，将possessInfo信息发给服务器，或写入到磁盘中
-                PossessInfo *possessInfo = dataObject->possessInfoHeader;
-                while(possessInfo)
-                {
-                    //write()
-                    possessInfo = possessInfo->Blink;
-                }
-                break;
-            }
-            else
-            {
-                free(dataObject->possessInfoHeader);
-                dataObject->possessInfoHeader = NULL;//如果引用计数为0，说明此时链表只剩一个结点，直接释放
-            }
-        }
+        //到了这里，说明可以正常被标记为空闲了
+        goto safeflag;
+        
     }while(++count < 3);
     
+    --dataObject->retainCount;
+    if(dataObject->retainCount)
+    {
+        //此时说明内存泄露，将possessInfo信息发给服务器，或写入到磁盘中
+        PossessInfo *possessInfo = dataObject->possessInfoHeader;
+        while(possessInfo)
+        {
+            //write()
+            possessInfo = possessInfo->Blink;
+        }
+        return;
+    }
+    else
+    {
+        free(dataObject->possessInfoHeader);
+        dataObject->possessInfoHeader = NULL;//如果引用计数为0，说明此时链表只剩一个结点，直接释放
+    }
     
-    
+safeflag:
     dataObject->value = (long)_globalMemoryPool->lastFree;
     _globalMemoryPool->lastFree = (long)dataObject;
     
