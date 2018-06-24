@@ -9,7 +9,7 @@ typedef struct _MMLinkListNode
 
 typedef struct _ImageObject
 {
-    char name[20];
+    char name[0x04];
     char flag;
     int value;
     int pointImportCount;

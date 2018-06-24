@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "PBCRetainCount.h"
+#include "PBCMemoryPool.h"
 
 MMLinkListNode *plinkListHeader = NULL;
 
