@@ -121,6 +121,8 @@ void removePossessInfoInLink(PossessInfo *header,PossessInfo *target)
     {
         target->Blink->Flink = target->Flink;
         target->Flink->Blink = target->Blink;
+        free(target);
+        target = NULL;
     }
     else
     {
@@ -180,7 +182,10 @@ void fillPossessInfo(PossessInfo *possessInfo, char *funcName,pthread_t threadId
     int funcNameLen = strlen(funcName);
     int len = realLen > funcName ? funcName : realLen;
     strlcpy(possessInfo->FunctionName, funcName, len);
+    possessInfo->ThreadID = pthread_self();
+    
 }
+
 
 PDataObject PBCMalloc()
 {
