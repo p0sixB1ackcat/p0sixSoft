@@ -1,4 +1,4 @@
-//
+ //
 //  ViewController.m
 //  p0sixSoft
 //
@@ -10,6 +10,7 @@
 #import "ShowbiteController.h"
 #import "p0sixB1ackcat.h"
 #import "PBCSecurityAPI.h"
+#import "PBCMemoryPool.h"
 
 @interface ViewController ()
 {
@@ -31,11 +32,22 @@
     
     NSString *enc = [PBCEncrypt RSAEncryptStr:@"0123456789" key:nil];
     
-    NSLog(@"enc is %@",enc);
+    //NSLog(@"enc is %@",enc);
     
     NSString *dec = [PBCEncrypt RSADecryptStr:enc key:nil];
     
-    NSLog(@"dec is %@",dec);
+    //NSLog(@"dec is %@",dec);
+    
+    void *buffer[0x3] = {0x00};
+    for(int i = 0; i < 2; i++)
+    {
+        buffer[i] = PBCMalloc();
+        printf("buffer[%d] = %p\n",i,buffer[i]);
+    }
+    
+    flagMemoryUnoccupied(buffer[1]);
+    void *newBuffer = PBCMalloc();
+    printf("newBuffer address is %p\n",newBuffer);
     
 }
 

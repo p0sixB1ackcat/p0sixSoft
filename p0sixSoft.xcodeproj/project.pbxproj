@@ -37,9 +37,9 @@
 		CFDEBEBE20543767009F2F7F /* PBCSecurityAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFDEBEC420543FFD009F2F7F /* libPBCEncrypt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEAA20543596009F2F7F /* libPBCEncrypt.dylib */; };
 		CFDEBEC7205440A9009F2F7F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDEBEC5205440A9009F2F7F /* openssl.framework */; };
-		D3315EE720DD2838002C5320 /* PBCRetainCount.c in Sources */ = {isa = PBXBuildFile; fileRef = D3315EE420DD2837002C5320 /* PBCRetainCount.c */; };
 		D3315EE820DD2838002C5320 /* PBCMemoryPool.c in Sources */ = {isa = PBXBuildFile; fileRef = D3315EE520DD2838002C5320 /* PBCMemoryPool.c */; };
-		D3315EE920DD2838002C5320 /* PBCRetainCount.h in Headers */ = {isa = PBXBuildFile; fileRef = D3315EE620DD2838002C5320 /* PBCRetainCount.h */; };
+		D368C8CB20E1E80C00DE0922 /* hashmap.h in Headers */ = {isa = PBXBuildFile; fileRef = D368C8C920E1E80B00DE0922 /* hashmap.h */; };
+		D368C8CC20E1E80C00DE0922 /* hashmap.c in Sources */ = {isa = PBXBuildFile; fileRef = D368C8CA20E1E80B00DE0922 /* hashmap.c */; };
 		D3A1F3DB20D8FCB1007324F6 /* libPBCMemory.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D37724B420D248CD001C7C71 /* libPBCMemory.dylib */; };
 /* End PBXBuildFile section */
 
@@ -105,10 +105,10 @@
 		CFDEBEBC20543767009F2F7F /* PBCSecurityAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCSecurityAPI.h; sourceTree = "<group>"; };
 		CFDEBEC020543795009F2F7F /* PBCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCpp.h; sourceTree = "<group>"; };
 		CFDEBEC5205440A9009F2F7F /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
-		D3315EE420DD2837002C5320 /* PBCRetainCount.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PBCRetainCount.c; sourceTree = "<group>"; };
 		D3315EE520DD2838002C5320 /* PBCMemoryPool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PBCMemoryPool.c; sourceTree = "<group>"; };
-		D3315EE620DD2838002C5320 /* PBCRetainCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBCRetainCount.h; sourceTree = "<group>"; };
 		D3315EEA20DD2853002C5320 /* PBCMemoryPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBCMemoryPool.h; sourceTree = "<group>"; };
+		D368C8C920E1E80B00DE0922 /* hashmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashmap.h; sourceTree = "<group>"; };
+		D368C8CA20E1E80B00DE0922 /* hashmap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hashmap.c; sourceTree = "<group>"; };
 		D37724B420D248CD001C7C71 /* libPBCMemory.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libPBCMemory.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -236,10 +236,10 @@
 		D37724B520D248CD001C7C71 /* PBCMemory */ = {
 			isa = PBXGroup;
 			children = (
+				D368C8CA20E1E80B00DE0922 /* hashmap.c */,
+				D368C8C920E1E80B00DE0922 /* hashmap.h */,
 				D3315EE520DD2838002C5320 /* PBCMemoryPool.c */,
 				D3315EEA20DD2853002C5320 /* PBCMemoryPool.h */,
-				D3315EE420DD2837002C5320 /* PBCRetainCount.c */,
-				D3315EE620DD2838002C5320 /* PBCRetainCount.h */,
 			);
 			path = PBCMemory;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3315EE920DD2838002C5320 /* PBCRetainCount.h in Headers */,
+				D368C8CB20E1E80C00DE0922 /* hashmap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,8 +460,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D368C8CC20E1E80C00DE0922 /* hashmap.c in Sources */,
 				D3315EE820DD2838002C5320 /* PBCMemoryPool.c in Sources */,
-				D3315EE720DD2838002C5320 /* PBCRetainCount.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +597,7 @@
 				CODE_SIGN_ENTITLEMENTS = p0sixSoft/p0sixSoft.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = p0sixSoft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -612,6 +613,7 @@
 				CODE_SIGN_ENTITLEMENTS = p0sixSoft/p0sixSoft.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = p0sixSoft/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
