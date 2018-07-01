@@ -291,7 +291,7 @@ safeflag:
         //求得该内存块所在结点
         InfoEntry *inNode;
         //根据void *类型的buffer，找到与之对应的info
-        char *key = ((char *)(long)dataObject - MemoryBlockKeyLength);
+        char *key = ((char *)dataObject - MemoryBlockKeyLength);
         printf("buffer address is %p,key address is %p\n",dataObject,key);
         if(!key)
         {
@@ -372,11 +372,6 @@ void PBCFreePool()
                 InfoEntry *tmp = p;
                 if(tmp->bufferblock)
                 {
-                    if(tmp->bufferblock->buffer)
-                    {
-                        free(tmp->bufferblock->buffer);
-                        tmp->bufferblock->buffer = NULL;
-                    }
                     free(tmp->bufferblock);
                     tmp->bufferblock = NULL;
                 }

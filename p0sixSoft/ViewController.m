@@ -45,7 +45,7 @@
         printf("buffer[%d] = %p\n",i,buffer[i]);
     }
     
-    flagMemoryUnoccupied(buffer[1]);
+    flagMemoryUnoccupied(buffer[0]);
     void *newBuffer = PBCMalloc();
     printf("newBuffer address is %p\n",newBuffer);
     
