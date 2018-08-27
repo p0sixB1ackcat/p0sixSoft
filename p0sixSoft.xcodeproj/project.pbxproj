@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF2F197A21280E54000C357A /* jsonsort.h in Headers */ = {isa = PBXBuildFile; fileRef = CF2F197821280E54000C357A /* jsonsort.h */; };
+		CF2F197B21280E54000C357A /* jsonsort.c in Sources */ = {isa = PBXBuildFile; fileRef = CF2F197921280E54000C357A /* jsonsort.c */; };
 		CF3E4484202E96BB001FB037 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3E4483202E96BB001FB037 /* AppDelegate.m */; };
 		CF3E4487202E96BB001FB037 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3E4486202E96BB001FB037 /* ViewController.m */; };
 		CF3E4489202E96BB001FB037 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF3E4488202E96BB001FB037 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CF2F197821280E54000C357A /* jsonsort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jsonsort.h; sourceTree = "<group>"; };
+		CF2F197921280E54000C357A /* jsonsort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = jsonsort.c; sourceTree = "<group>"; };
 		CF3E447F202E96BB001FB037 /* p0sixSoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = p0sixSoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF3E4482202E96BB001FB037 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CF3E4483202E96BB001FB037 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				CF3E44DC202E9789001FB037 /* WXUtils.m */,
 				CF3E44DA202E9789001FB037 /* wxzip.c */,
 				CF3E44E1202E978A001FB037 /* wxzip.h */,
+				CF2F197821280E54000C357A /* jsonsort.h */,
+				CF2F197921280E54000C357A /* jsonsort.c */,
 				CF3E44BA202E9758001FB037 /* Info.plist */,
 			);
 			path = p0sixB1ackcat;
@@ -251,6 +257,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2F197A21280E54000C357A /* jsonsort.h in Headers */,
 				CF3E44EA202E978A001FB037 /* WXSQLiteDatabase.h in Headers */,
 				CF3E44E2202E978A001FB037 /* wxioapi.h in Headers */,
 				CF3E44E5202E978A001FB037 /* wxcrypt.h in Headers */,
@@ -441,6 +448,7 @@
 				CF3E44E9202E978A001FB037 /* WXUtils.m in Sources */,
 				CF3E44EB202E978A001FB037 /* wxioapi.c in Sources */,
 				CF3E44E7202E978A001FB037 /* wxzip.c in Sources */,
+				CF2F197B21280E54000C357A /* jsonsort.c in Sources */,
 				CF3E44E4202E978A001FB037 /* showbits.c in Sources */,
 				CF3E44E3202E978A001FB037 /* WXSQLiteDatabase.m in Sources */,
 				CF3E44ED202E978A001FB037 /* integertostr.c in Sources */,

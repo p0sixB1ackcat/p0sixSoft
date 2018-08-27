@@ -46,8 +46,12 @@
     }
     
     flagMemoryUnoccupied(buffer[0]);
-    void *newBuffer = PBCMalloc();
-    printf("newBuffer address is %p\n",newBuffer);
+
+    printf("内存块:%p被标记为空闲\n",buffer[0]);
+    
+    void *newBuffer0 = PBCMalloc();
+    printf("newBuffer0 address is %p\n",newBuffer0);
+    
     
 }
 

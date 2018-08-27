@@ -1,7 +1,9 @@
 #ifndef PBCMemoryPool_h
 #define PBCMemoryPool_h
 
-
+//#ifndef __WATCHLOG__
+//#define __WATCHLOG__
+//#endif
 
 void *PBCMalloc(void);
 

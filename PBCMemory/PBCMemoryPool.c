@@ -188,8 +188,10 @@ void *PBCAllocatePoolWithTag(int size,int maxobjcount, const char *tag)
         //没找到，要重新生成一个和该tag对应的结点，并根据size大小生成其整数倍的内存块，并进行切割
         info = createPoolNode(size, maxobjcount, tag);
         buffer = (&(info->bufferblock->buffer) + (info->currentObjCount * info->objSize));
-        snprintf((char *)buffer - MemoryBlockKeyLength, MemoryBlockKeyLength, "%s-%d",info->tags,info->currentObjCount);
-        info->bufferblock->key = (char *)buffer - MemoryBlockKeyLength;
+        snprintf((char *)buffer, MemoryBlockKeyLength, "%s-%d",info->tags,info->currentObjCount);
+        info->bufferblock->key = (char *)buffer;
+        buffer += MemoryBlockKeyLength;
+        
         hashmap_put(_globalMemoryPool->hashmap, info->bufferblock->key, info);
         ++info->currentObjCount;
         
@@ -209,13 +211,15 @@ void *PBCAllocatePoolWithTag(int size,int maxobjcount, const char *tag)
             //先切割，在增加currentObjCount
             //注意这里，要取buffer的地址，直接用buffer，如果该buffer内容被填充，那么buffer的值不是地址，而是实际的内容
             buffer = &info->bufferblock->buffer;
-            buffer += (info->currentObjCount * info->objSize);
-            
-            snprintf((char *)buffer - MemoryBlockKeyLength, MemoryBlockKeyLength,  "%s-%d",info->tags,info->currentObjCount);
-            info->bufferblock->key = (char *)buffer - MemoryBlockKeyLength;
+            buffer += ((info->currentObjCount * info->objSize));
+            snprintf((char *)buffer, MemoryBlockKeyLength,  "%s-%d",info->tags,info->currentObjCount);
+            info->bufferblock->key = (char *)buffer;
+            buffer += MemoryBlockKeyLength;
+#ifdef __WATCHLOG__
             printf("key address is %p\n",info->bufferblock->key);
+#endif
             ++info->currentObjCount;
-            //切割之后,将该内存块的地址和所处链表地址做一个映射，存放到hash表中
+            //切割之后,将该内存块的地址和所处链表结点地址做一个映射，存放到hash表中
             hashmap_put(_globalMemoryPool->hashmap, info->bufferblock->key, info);
             
             
@@ -291,8 +295,11 @@ safeflag:
         //求得该内存块所在结点
         InfoEntry *inNode;
         //根据void *类型的buffer，找到与之对应的info
-        char *key = ((char *)dataObject - MemoryBlockKeyLength);
+
+        char *key = ((char *)(long)dataObject - MemoryBlockKeyLength);
+#ifdef __WATCHLOG__
         printf("buffer address is %p,key address is %p\n",dataObject,key);
+#endif
         if(!key)
         {
             printf("error:key is NULL");
