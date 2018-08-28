@@ -1,12 +1,12 @@
 //
 //  jsonsort.c
-//  p0sixB1ackcat
+//  OpenChainModule
 //
-//  Created by p0sixB1ackcat on 2018/8/18.
+//  Created by p0sixB1ackcat on 2018/8/28.
 //  Copyright © 2018年 p0sixB1ackcat. All rights reserved.
 //
 
-#include "jsonsort.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -19,10 +19,6 @@ typedef struct _ListEntry
     struct _ListEntry *next;
     
 }ListEntry,*PListEntry;
-
-static void traverLinkList(void);
-
-int compstr(ListEntry *p,ListEntry *q);
 
 static ListEntry *header = NULL;
 
@@ -39,7 +35,7 @@ static void InsertLinkList(ListEntry *le)
     }
 }
 
-void emptyLinkList()
+void emptyLinkList(void)
 {
     ListEntry *p = header;
     while(p)
@@ -61,7 +57,7 @@ void emptyLinkList()
     }
 }
 
-static void traverLinkList()
+void traver(void)
 {
     ListEntry *p = header;
     while(p)
@@ -69,10 +65,37 @@ static void traverLinkList()
         printf("p->key is %s,p->value is %s\n",p->key,p->value);
         p = p->next;
     }
-    
 }
 
-void sortlist()
+int compstr(ListEntry *p,ListEntry *q)
+{
+    if(!p || !q)
+        return 0;
+    char *str1,*str2;
+    str1 = p->key;
+    str2 = q->key;
+    
+    while(*str1 != '\0' && *str2 != '\0')
+    {
+        if(*str1 > *str2)
+        {
+            return 1;
+        }
+        else if (*str1 < *str2)
+        {
+            return 0;
+        }
+        else
+        {
+            ++str1;
+            ++str2;
+        }
+    }
+    
+    return strlen(p->key) - strlen(q->key) > 0 ? 0 : 1;
+}
+
+void sortlist(void)
 {
     ListEntry *p,*q,*h;
     p = header;
@@ -110,30 +133,7 @@ void sortlist()
     return;
 }
 
-int compstr(ListEntry *p,ListEntry *q)
-{
-    if(!p || !q)
-        return 0;
-    char *str1,*str2;
-    str1 = p->key;
-    str2 = q->key;
-    
-    while(*str1 != '\0' && *str2 != '\0')
-    {
-        if(*str1 > *str2)
-            return 1;
-        else if (*str1 < *str2)
-            return 0;
-        else
-        {
-            ++str1;
-            ++str2;
-        }
-    }
-    return 1;
-}
-
-void formatListEntryToJson()
+char *formatListEntryToJson(void)
 {
     ListEntry *p = header;
     int totallen = 0;
@@ -172,21 +172,17 @@ next:
         p = header;
         goto loop;
     }
-    printf("buffer len is %lu\n",strlen(buffer));
     buffer[totallen - 1] = '}';
-    printf("buffer is %s\n",buffer);
     
+    return buffer;
 }
 
-
-
-void pullAwayJsonToListEntry(unsigned char*json)
+void pullAwayJsonToListEntry(unsigned char *json)
 {
     char *p,*q;
     p = q = ((char *)json + 1);
     int pindex = 0,qindex = 0;
     int before = 0;
-    printf("%s\n",p);
     while(p[pindex] != '\0')
     {
         if(p[pindex] == ',' || p[pindex] == '}')
@@ -206,7 +202,7 @@ void pullAwayJsonToListEntry(unsigned char*json)
                     {
                         *(le->key + i) = q[before + 1 + i];
                     }
-                    
+                    *(le->key + le->klen) = '\0';
                     int vsize = sizeof(char) * (pindex - 1 - qindex - 1 - 1);
                     le->value = (char *)malloc(vsize);
                     memset(le->value, 0x00, vsize);
@@ -215,6 +211,7 @@ void pullAwayJsonToListEntry(unsigned char*json)
                     {
                         *(le->value + i) = q[qindex + 2 + i];
                     }
+                    *(le->value + le->vlen) = '\0';
                     
                 }
                 ++qindex;

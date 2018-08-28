@@ -11,6 +11,7 @@
 #import "p0sixB1ackcat.h"
 #import "PBCSecurityAPI.h"
 #import "PBCMemoryPool.h"
+#import "MJExtension.h"
 
 @interface ViewController ()
 {
@@ -52,6 +53,18 @@
     void *newBuffer0 = PBCMalloc();
     printf("newBuffer0 address is %p\n",newBuffer0);
     
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"v1":@"v1",@"v2":@"v2",@"1":@"1",@"2":@"2",@"abc":@"abc",@"abc1":@"abc1",@"key":@"30819f300d06092a864886f70d010101050003818d00308189028181008f54545f47cccd297cbc745d0b3ffcb18351904a5d15463e1629a6bafa813453b5083be618401af6cebe636575ffacad9b92765208b6364d5e60fab1cf21f61088c80c906a37cc41ee39138bdd79c652504688a668a751c308ed4bae84145617012612ad50450000769272b005464a0e0243a4b0883a1a261dfd0c31e865d7510203010001",@"zyl1":@"zyl1",@"123":@"123"}];
+    
+    NSLog(@"dic is %@",dic);
+    NSString *json = [dic mj_JSONString];
+    NSLog(@"json is %@",json);
+    
+    NSString *newJson = [PBCJsonSort JsonSort:json];
+    NSLog(@"newJson is %@",newJson);
+    
+    NSDictionary *newdic = [newJson mj_JSONObject];
+    
+    NSLog(@"newdic is %@",newdic);
     
 }
 

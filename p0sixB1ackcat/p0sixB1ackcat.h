@@ -21,6 +21,7 @@ FOUNDATION_EXPORT const unsigned char p0sixB1ackcatVersionString[];
 #import "showbits.h"
 #import "integertostr.h"
 #import "WXUtils.h"
+#import "PBCJsonSort.h"
 
 #endif
 
