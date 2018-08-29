@@ -12,10 +12,10 @@
 
 typedef struct _ListEntry
 {
-    long klen;
-    long vlen;
     char *key;
     char *value;
+    long klen;
+    long vlen;
     struct _ListEntry *next;
     
 }ListEntry,*PListEntry;
